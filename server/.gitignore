@@ -1,0 +1,24 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn.lock
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+
+# Build / temp
+dist/
+build/
+
+# Coverage
+coverage/
+
+# Database
+*.sqlite
