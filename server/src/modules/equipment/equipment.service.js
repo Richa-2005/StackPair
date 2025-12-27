@@ -30,7 +30,7 @@ export async function listEquipment({ search = "", groupBy = "" }) {
       u.name as default_technician_name,
       ${groupKeySQL}
     FROM equipment e
-    JOIN teams t ON t.id = e.maintenance_team_id
+    LEFT JOIN teams t ON t.id = e.maintenance_team_id
     LEFT JOIN users u ON u.id = e.default_technician_id
     ${where}
     ORDER BY e.id DESC

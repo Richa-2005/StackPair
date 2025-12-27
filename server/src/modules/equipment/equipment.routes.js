@@ -8,8 +8,9 @@ const router = express.Router();
 
 // View (all logged-in users)
 router.get("/", requireAuth, list);
-router.get("/:id", requireAuth, getOne);
 router.get("/:id/requests", requireAuth, requests);
+router.get("/:id", requireAuth, getOne);
+
 
 // Create/Update (Manager only)
 router.post("/", requireAuth, requireRole("MANAGER"), create);
