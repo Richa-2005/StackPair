@@ -1,5 +1,4 @@
-import api from "./axios";
+import { axiosClient } from "./axiosClient";
 
 export const getTechnicians = () =>
-  api.get("/users?role=TECHNICIAN");
-
+  axiosClient.get("/users?role=TECHNICIAN");

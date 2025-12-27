@@ -19,24 +19,22 @@ export default function Login() {
   }
 
   async function handleSubmit(e) {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
+  e.preventDefault();
+  setError("");
+  setLoading(true);
 
-    try {
-      const res = await login(form); 
-
-      localStorage.setItem("token", res.token);
-      localStorage.setItem("user", JSON.stringify(res.user));
-
-      navigate("/dashboard");
-    } catch (err) {
-      const msg = err?.response?.data?.error?.message || "Invalid email or password";
-      setError(msg);
-    } finally {
-      setLoading(false);
-    }
+  try {
+    const { token, user } = await login(form);
+    localStorage.setItem("token", token);
+    localStorage.setItem("user", JSON.stringify(user));
+    navigate("/dashboard");
+  } catch (err) {
+    const msg = err?.response?.data?.error?.message || "Invalid email or password";
+    setError(msg);
+  } finally {
+    setLoading(false);
   }
+}
 
   return (
     <AuthLayout>

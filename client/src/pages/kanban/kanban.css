@@ -1,0 +1,11 @@
+.kanban-page {
+  padding: 24px 32px;
+  background: #fafafa;
+  min-height: calc(100vh - 60px);
+}
+
+.kanban-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 18px 0;
+}

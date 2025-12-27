@@ -1,0 +1,15 @@
+.kanban-board {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.kanban-board::-webkit-scrollbar {
+  height: 10px;
+}
+.kanban-board::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 999px;
+}

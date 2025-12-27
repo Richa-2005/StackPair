@@ -1,5 +1,15 @@
 .dashboard-page {
   padding: 30px 40px;
+  background: #f6f7fb;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
 }
 
 .dashboard-header h1 {
@@ -9,40 +19,106 @@
 
 .dashboard-subtitle {
   color: #666;
-  margin-bottom: 30px;
+  margin-bottom: 0;
+}
+
+.quick-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: #1976d2;
+  color: #fff;
+  border-color: #1976d2;
 }
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
-  margin-bottom: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
 }
 
 .stat-card {
   background: #ffffff;
-  padding: 20px;
+  padding: 18px;
   border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
 
 .stat-value {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .stat-label {
   font-size: 14px;
-  margin-top: 4px;
+  margin-top: 6px;
   color: #555;
 }
 
-/* Color accents */
+/* accents */
 .stat-card.blue { border-left: 4px solid #1976d2; }
 .stat-card.orange { border-left: 4px solid #f57c00; }
 .stat-card.green { border-left: 4px solid #2e7d32; }
 .stat-card.red { border-left: 4px solid #d32f2f; }
 
-.dashboard-next h2 {
-  margin-bottom: 6px;
+.dashboard-grid-2 {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 16px;
 }
+
+.panel {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.panel-title {
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.table-wrap { overflow-x: auto; }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th, .table td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid #eef0f4;
+}
+
+.tech-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tech-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: #f7f8fc;
+  border-radius: 12px;
+}
+
+.tech-name { font-weight: 700; }
+.tech-count { font-weight: 800; }

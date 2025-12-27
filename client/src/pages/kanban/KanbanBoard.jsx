@@ -1,14 +1,16 @@
 import KanbanColumn from "./KanbanColumn";
+import "./KanbanBoard.css"
 
-export default function KanbanBoard({ columns, technicians, onMove, onAssign }) {
+export default function KanbanBoard({ columns, technicians, canAssign, onMove, onAssign }) {
   return (
-    <div style={{ display: "flex", gap: 20 }}>
-      {Object.keys(columns).map(status => (
+    <div className="kanban-board">
+      {Object.keys(columns).map((status) => (
         <KanbanColumn
           key={status}
           title={status}
           items={columns[status]}
           technicians={technicians}
+          canAssign={canAssign}
           onMove={onMove}
           onAssign={onAssign}
         />
