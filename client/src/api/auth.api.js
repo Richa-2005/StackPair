@@ -1,11 +1,13 @@
-import axiosClient from "./axiosClient";
+import { axiosClient } from "./axiosClient";
 
-export const loginUser = async (payload) => {
-  const { data } = await axiosClient.post("/auth/login", payload);
-  return data;
-};
+export async function signup(payload) {
+  // payload: { name, email, password, role }
+  const res = await axiosClient.post("/auth/signup", payload);
+  return res.data.data; // because server returns { data: ... }
+}
 
-export const signupUser = async (payload) => {
-  const { data } = await axiosClient.post("/auth/signup", payload);
-  return data;
-};
+export async function login(payload) {
+  // payload: { email, password }
+  const res = await axiosClient.post("/auth/login", payload);
+  return res.data.data; // { token, user }
+}

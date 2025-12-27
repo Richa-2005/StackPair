@@ -1,42 +1,10 @@
-.login-container {
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background-image: url("../../assets/auth-bg.jpg");
-  background-size: cover;
-}
-
-/* Background image layer */
-.login-container::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("../../assets/auth-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  filter: blur(8px);
-  opacity: 0.5;
-  z-index: 1;
-}
-
-/* Dark overlay for contrast */
-.login-container::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 2;
-}
 
 /* Card must be above background */
 .login-card {
   position: relative;
   z-index: 3;
   background: rgba(255, 255, 255, 0.95);
-  width: 360px;
+width: min(420px, 92vw);
   padding: 30px;
   border-radius: 14px;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
@@ -74,7 +42,8 @@
   display: block;
   font-size: 14px;
   margin-bottom: 6px;
-  color: white;
+  color: #333;
+  font-weight: 500;
 }
 
 .input-group input {
@@ -126,3 +95,4 @@
 .login-footer span:hover {
   text-decoration: underline;
 }
+

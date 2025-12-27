@@ -16,7 +16,7 @@ export default function AuthLayout({ children }) {
 
         {/* MAIN SECTION */}
         <div className="auth-main">
-
+<div className="auth-desc-wrapper">
           {/* LEFT DESCRIPTION CARD */}
           <div className="auth-desc-card">
             <h2>Smart Maintenance Tracking</h2>
@@ -34,6 +34,7 @@ export default function AuthLayout({ children }) {
             <p className="desc-footer">
               Built for teams. Designed for efficiency.
             </p>
+          </div>
           </div>
 
           {/* RIGHT AUTH CARD */}

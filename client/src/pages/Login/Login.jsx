@@ -1,17 +1,14 @@
 import AuthLayout from "../../layouts/AuthLayout";
 import { useState } from "react";
-import { loginUser } from "../../api/auth.api";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
+import { login } from "../../api/auth.api";   
 
 export default function Login() {
   const navigate = useNavigate();
 
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-  });
+  const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -25,19 +22,22 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const res = await loginUser(form);
+      const res = await login(form); 
+
       localStorage.setItem("token", res.token);
       localStorage.setItem("user", JSON.stringify(res.user));
+
       navigate("/dashboard");
-    } catch {
-      setError("Invalid email or password");
+    } catch (err) {
+      const msg = err?.response?.data?.error?.message || "Invalid email or password";
+      setError(msg);
     } finally {
       setLoading(false);
     }
   }
 
   return (
-      <AuthLayout>
+    <AuthLayout>
       <form className="login-card" onSubmit={handleSubmit}>
         <h2 className="login-title">Welcome Back</h2>
         <p className="login-subtitle">Login to continue</p>
@@ -77,6 +77,6 @@ export default function Login() {
           <span onClick={() => navigate("/signup")}>Sign up</span>
         </p>
       </form>
-      </AuthLayout>
+    </AuthLayout>
   );
 }

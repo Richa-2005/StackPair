@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { signupUser } from "../../api/auth.api";
+import { signup } from "../../api/auth.api";
 import { useNavigate } from "react-router-dom";
 import "./Signup.css";
 import AuthLayout from "../../layouts/AuthLayout";
@@ -29,10 +29,11 @@ export default function Signup() {
     setLoading(true);
 
     try {
-      await signupUser(form);
-      navigate("/login");
-    } catch {
-      setError("Signup failed. Try again.");
+      await signup(form);
+      navigate("/");
+    }catch (err) {
+        const msg = err?.response?.data?.error?.message || "Signup failed. Try again.";
+        setError(msg);
     } finally {
       setLoading(false);
     }
